@@ -1,0 +1,93 @@
+.productContainers {
+  display: grid;
+  display: block;
+  justify-content: center;
+  width: 200px;
+  height: 300px;
+  align-items: center;
+  grid-template-rows: 1fr, 1fr, 1fr;
+  grid-template-areas:
+    "pHeader" "pHeader"
+    "pImage" "pImage"
+    "pDsc" "pDsc"
+    "pPrice" "pAdd"
+    "cPanel" "cPanel";
+  margin: 10px;
+  color: rgb(164, 71, 71);
+  box-shadow: 5px 5px 5px 4px #ff80001f;
+  border-radius: 15px;
+}
+.productHeader {
+  display: flex;
+  grid-area: pHeader;
+  align-items: center;
+  padding: 5px;
+  justify-content: space-between;
+}
+
+.productTitle {
+  font-size: 1rem;
+  grid-area: pTitle;
+  margin-left: 5px;
+  width: fit-content;
+}
+.productId {
+  font-size: 1rem;
+  grid-area: pId;
+  margin-right: 5px;
+}
+.productImage {
+  grid-area: pImage;
+  display: flex;
+  align-items: center;
+  margin: auto;
+  width: 150px;
+  height: 150px;
+}
+.productDsc {
+  grid-area: pDsc;
+  font-size: 1rem;
+  margin-left: 5px;
+  margin-bottom: 5px;
+  text-wrap: wrap;
+  max-height: 20px;
+  overflow: hidden;
+}
+.hr {
+  border-top: 1px solid rgb(164, 71, 71);
+  margin: 5px;
+}
+
+.productAddPositions {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 5px;
+  margin-left: 5px;
+  margin-right: 5px;
+}
+.productPrice {
+  display: flex;
+  justify-content: right;
+  grid-area: pPrice;
+  font-size: 10px;
+  color: #c23400;
+  margin-top: 20px;
+  margin-right: 5px;
+}
+.editRemovePanel {
+  grid-area: cPanel;
+  display: flex;
+  justify-content: end;
+  margin-right: 10px;
+  grid-area: cPanel;
+}
+.cartRemove {
+  background-color: #c23400;
+  color: white;
+}
+.cartRemove:hover {
+  background-color: white;
+  color: #c23400 !important;
+  font-weight: bold !important;
+  border-color: #c23400 !important;
+}

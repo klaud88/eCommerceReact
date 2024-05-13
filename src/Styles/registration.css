@@ -1,0 +1,23 @@
+.passwordError {
+  color: #df362d;
+  font-size: 1rem;
+
+  font-weight: bold;
+}
+
+#repeatPassword,
+#email {
+  width: 100%;
+  height: 30px;
+  border: none;
+  outline: none;
+  padding-left: 15px;
+  font-size: 1rem;
+  border-radius: 5px;
+  margin: 10px;
+}
+.errorPassword {
+  color: #df362d;
+  font-size: 15px;
+  margin-left: 20px;
+}

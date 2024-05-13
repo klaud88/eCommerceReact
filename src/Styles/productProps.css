@@ -1,0 +1,116 @@
+.productContainer {
+  display: grid;
+  display: block;
+  justify-content: center;
+  width: 200px;
+  height: 300px;
+  align-items: center;
+  grid-template-rows: 1fr, 1fr, 1fr;
+  grid-template-areas:
+    "pHeader" "pHeader"
+    "pImage" "pImage"
+    "pDsc" "pDsc"
+    "pPrice" "pAdd"
+    "cPanel" "cPanel";
+  margin: 10px;
+  color: rgb(164, 71, 71);
+  box-shadow: 5px 5px 5px 4px #ff80001f;
+  border-radius: 15px;
+}
+.productHeader {
+  display: flex;
+  grid-area: pHeader;
+  align-items: center;
+  padding: 5px;
+  height: 20px;
+  overflow: hidden;
+  margin-top: 5px;
+}
+
+.productTitle {
+  font-size: 1rem;
+  grid-area: pTitle;
+  margin-left: 5px;
+  width: fit-content;
+}
+.productid {
+  font-size: 1rem;
+  grid-area: pId;
+  margin-right: 5px;
+}
+.productImages {
+  grid-area: pImage;
+  display: flex;
+  align-items: center;
+  margin: auto;
+  width: 150px;
+  height: 150px;
+}
+.productDesc {
+  grid-area: pDsc;
+  font-size: 15px;
+  margin-left: 5px;
+  margin-bottom: 5px;
+  text-wrap: wrap;
+  height: 30px;
+  overflow: hidden;
+}
+.hr {
+  border-top: 1px solid rgb(164, 71, 71);
+  margin: 5px;
+}
+
+.productAddPositions {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 5px;
+  margin-left: 5px;
+  margin-right: 5px;
+}
+.producstPrice {
+  display: flex;
+  justify-content: right;
+  grid-area: pPrice;
+  font-size: 10px;
+  color: #c23400;
+  margin-top: 20px;
+  margin-right: 5px;
+}
+.productsAdd {
+  grid-area: pAdd;
+  font-size: 13px !important;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 1rem;
+  font-weight: bold;
+  background-color: #fd7f20;
+  margin-top: 20px;
+  width: 50px;
+}
+.productsAdd:hover {
+  color: #fd7f20 !important;
+  border-width: 1px;
+  border-color: #fd7f20 !important;
+  background-color: white !important;
+}
+.editRemovePanels {
+  display: flex;
+  justify-content: space-between;
+  margin: 0px 10px 5px 10px;
+}
+.productsPanel {
+  width: auto;
+  height: 20px;
+  font-size: 13px;
+  display: flex;
+  align-items: center;
+  color: #c23400 !important;
+  background: white !important;
+  border-color: #c23400 !important;
+}
+.productsPanel:hover {
+  color: white !important;
+  background: #c23400 !important;
+}
