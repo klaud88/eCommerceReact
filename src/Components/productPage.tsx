@@ -1,7 +1,8 @@
 import axios from "axios";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import ProductProps from "./productProps";
 import "../Styles/productPage.css";
+import UserContext from "./context/UserContext";
 
 interface Product {
   image: string;
@@ -11,12 +12,14 @@ interface Product {
   price: number;
   id: number;
   handleCancel: any;
+  created_at: string;
 }
 
 const ProductPage = () => {
   const [data, setData] = useState<Product[]>([]);
   const [text, setText] = useState<boolean>(false);
 
+  const { search } = useContext(UserContext);
   useEffect(() => {
     const fetchData = async () => {
       const userID = localStorage.getItem("userId");
@@ -35,7 +38,6 @@ const ProductPage = () => {
             config
           );
           setData(response.data);
-          console.log(token);
         }
       } catch (error) {
         console.error("Error fetching data:", error);
@@ -43,6 +45,26 @@ const ProductPage = () => {
     };
     fetchData();
   }, []);
+
+  const filteredData = Array.isArray(data)
+    ? data?.filter((item) => {
+        const searchBy = search.toLowerCase();
+        const title = item.title.toLowerCase();
+        const description = item.description.toLowerCase();
+        const price = item.price.toString();
+        const createdAt = item.created_at.toLowerCase();
+        const id = item.id.toString();
+
+        return (
+          title.includes(searchBy) ||
+          description.includes(searchBy) ||
+          price.includes(searchBy) ||
+          createdAt.includes(searchBy) ||
+          id.includes(searchBy)
+        );
+      })
+    : null;
+
   return (
     <>
       <h1
@@ -56,8 +78,8 @@ const ProductPage = () => {
         Pleas Login Firs
       </h1>
       <div className="products">
-        {Array.isArray(data) ? (
-          data.map((obj, index) => (
+        {Array.isArray(filteredData) ? (
+          filteredData?.map((obj, index) => (
             <ProductProps
               key={obj.id}
               index={index}

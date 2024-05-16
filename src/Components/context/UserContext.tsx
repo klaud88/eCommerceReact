@@ -1,3 +1,12 @@
-import { createContext } from "react";
+import { createContext, Dispatch, SetStateAction } from "react";
 
-export const UserContext = createContext({});
+interface UserContextType {
+  search: string;
+  setSearch: Dispatch<SetStateAction<string>>;
+}
+
+const UserContext = createContext<UserContextType>({
+  search: "",
+  setSearch: () => {},
+});
+export default UserContext;

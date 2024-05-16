@@ -1,6 +1,6 @@
 import logo from "../assets/logo-white.png";
 import { Flex } from "antd";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import UserLogin from "./login";
 import { ConfigProvider } from "antd";
 import Registration from "./registration";
@@ -9,12 +9,15 @@ import { ShoppingCartOutlined } from "@ant-design/icons";
 import { Button, Modal } from "antd";
 import "../Styles/mainPage.css";
 import { Link } from "react-router-dom";
+import UserContext from "./context/UserContext";
 
 const MainPage = () => {
   const [loginVisible, setLoginVisible] = useState(false);
   const [registerVisible, setRegisterVisible] = useState(false);
   const [addProductVisisble, setAddProductVisisble] = useState(false);
   const [loginLogout, setLoginLogout] = useState("Login");
+
+  const { search, setSearch } = useContext(UserContext);
 
   useEffect(() => {
     const token = localStorage.getItem("token");
@@ -62,7 +65,12 @@ const MainPage = () => {
           </div>
         </Link>
         <div className="searchDiv">
-          <input className="search" placeholder="Search . . ."></input>
+          <input
+            defaultValue={search}
+            className="search"
+            placeholder="Search . . ."
+            onChange={(e) => setSearch(e.target.value)}
+          ></input>
         </div>
         <Flex className="styledButtons">
           <Link to="/">
